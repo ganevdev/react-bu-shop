@@ -2,16 +2,44 @@ import './App.css';
 
 import React, { Component } from 'react';
 
-import CardItem from './components/card-item';
+import ProductsFeed from './components/products-feed';
+import Search from './components/search';
+
+// const products = [];
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      products: [],
+      search: '',
+    };
+  }
+
+  getApiData() {
+    fetch('https://jsonplaceholder.typicode.com/photos')
+      .then(response => response.json())
+      .then(p => this.setState({ products: p }));
+  }
+
+  componentDidMount() {
+    this.getApiData();
+  }
+
+  onSearchChange = event => {
+    this.setState({ search: event.target.value });
+  };
+
   render() {
+    const { products, search } = this.state;
+    const searchProducts = products.filter(p =>
+      p.title.toLowerCase().includes(search.toLowerCase())
+    );
     return (
       <div className="App">
-        <CardItem title="Card Item Title" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Search onSearchChange={this.onSearchChange} />
+        <ProductsFeed products={searchProducts} />
       </div>
     );
   }
