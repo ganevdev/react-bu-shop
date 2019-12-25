@@ -1,0 +1,32 @@
+[
+  {
+    "id": 45643,
+    "title": "Gutenberg",
+    "kind": "food",
+    "price": 253170
+  },
+  {
+    "id": 233333,
+    "title": "Mega Gutenberg",
+    "kind": "mega",
+    "price": 4333
+  },
+  {
+    "id": 45444,
+    "title": "Reale Some",
+    "kind": "home",
+    "price": 930812
+  },
+  {
+    "id": 42245,
+    "title": "Auto Some",
+    "kind": "home",
+    "price": 1233
+  },
+  {
+    "id": 290111,
+    "title": "mega sings",
+    "kind": "mega",
+    "price": 5440
+  }
+]
